@@ -1,4 +1,4 @@
-# Java OOP2 Concepts Exercises : Answers
+# Java OOP Concepts (2) : Tire-change Booking System
 
 ## 🛠  How to Run :
 1. Clone the Repository
