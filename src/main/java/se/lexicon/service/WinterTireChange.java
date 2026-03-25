@@ -1,4 +1,4 @@
-package se.lexicon.task1;
+package se.lexicon.service;
 
 public class WinterTireChange extends Service{
 
@@ -13,13 +13,14 @@ public class WinterTireChange extends Service{
 
     @Override
     public double calculatePrice() {
-        return getBasePrice() * 1.2; //Will get an additional charge due to higher demand
+        double storageFee = 20.0;
+        return getBasePrice() + storageFee;
     }
 
     @Override
     public String toString() {
         return super.toString() +
-                ", Service Duration=" + getDuration() + "min" +
-                ", Total Price=" + calculatePrice();
+                ", Service Duration = " + getDuration() + "min" +
+                ", Total Price = " + calculatePrice();
     }
 }

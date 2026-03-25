@@ -22,44 +22,138 @@ You can find the exercise description here:
 
 ```mermaid
 classDiagram
-
-class Service {
-    <<abstract>>
-    -String id
-    -String name
-    -double basePrice
-    +Service(String name, double basePrice)
-    +String getId()
-    +String getName()
-    +double getBasePrice()
-    +int getDuration()
-    +double calculatePrice()
+%% --------------------------
+%% Customer
+class Customer {
+-String id
+-String name
+-boolean isMember
++Customer(String name, boolean isMember)
++boolean isMember()
 }
 
+%% --------------------------
+%% Service (Abstract)
+class Service {
+<<abstract>>
+-String id
+-String name
+-double basePrice
++Service(String name, double basePrice)
++int getDuration()
++double calculatePrice()
+}
+
+%% --------------------------
+%% Subclasses of Service
 class SummerTireChange {
-    +SummerTireChange()
-    +int getDuration()
-    +double calculatePrice()    
++SummerTireChange()
++int getDuration()
++double calculatePrice()
 }
 
 class WinterTireChange {
-    +WinterTireChange()
-    +int getDuration()
-    +double calculatePrice()
++WinterTireChange()
++int getDuration()
++double calculatePrice()
 }
 
-Service <|-- SummerTireChange
-Service <|-- WinterTireChange
+%% --------------------------
+%% BookingRequest (record)
+class BookingRequest {
++BookingRequest(Customer customer, Service service)
++Customer customer()
++Service service()
+}
+
+%% --------------------------
+%% Booking (record)
+class Booking {
++Booking(Customer customer, Service service, double finalPrice, boolean priority)
++Customer customer()
++Service service()
++double finalPrice()
++boolean priority()
+}
+
+%% --------------------------
+%% BookingProcessor (Interface)
+class BookingProcessor {
+<<interface>>
++Booking processBooking(BookingRequest request)
+}
+
+%% --------------------------
+%% Implementations of BookingProcessor
+class MemberBookingProcessor {
++Booking processBooking(BookingRequest request)
+}
+
+class NonMemberBookingProcessor {
++Booking processBooking(BookingRequest request)
+}
+
+%% --------------------------
+%% Factory
+class BookingProcessorFactory {
++getProcessor(Customer customer) : BookingProcessor
+}
+
+%% --------------------------
+%% Relationships
+    Customer --> BookingRequest : creates
+    Service --> BookingRequest : used in
+
+    Customer --> Booking : associated with
+    Service --> Booking : associated with
+
+    BookingProcessor <|.. MemberBookingProcessor
+    BookingProcessor <|.. NonMemberBookingProcessor
+
+    BookingProcessorFactory --> BookingProcessor : returns
 ```
 ---
 ## ⚡ Expected Output :
 
 ```
 ------------Exercise 1---------------
-Service{ID='96b70816-15d1-46c3-b1f3-80061a0b8b57', Name='Summer Tire Change', BasePrice=80.0}, Service Duration='45', Total Price=72.0}
-Service{ID='4193c7d8-9efc-4e35-bc2b-0c6d012e2582', Name='Winter Tire Change', BasePrice=100.0}, Service Duration='60min ', Total Price=120.0}
-
-
+Service{ID = 'S-00', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+Service{ID = 'S-01', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
+------------Exercise 2 ---------------
+Service{ID = 'S-02', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
+Service{ID = 'S-03', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+------------Exercise 3 ---------------
+=== All Bookings ===
+Booking{
+	 ID = 'B-00'
+	 Customer : Customer{ID = 'C-00', Name = 'John Smith', Is Member = true}
+	 Service : Service{ID = 'S-04', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+	 Final Price : 61.2
+	 Priority : true}
+Booking{
+	 ID = 'B-01'
+	 Customer : Customer{ID = 'C-01', Name = 'Alice Johnson', Is Member = false}
+	 Service : Service{ID = 'S-05', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
+	 Final Price : 120.0
+	 Priority : false}
+Booking{
+	 ID = 'B-02'
+	 Customer : Customer{ID = 'C-02', Name = 'Bob Brown', Is Member = true}
+	 Service : Service{ID = 'S-05', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
+	 Final Price : 102.0
+	 Priority : true}
+Booking{
+	 ID = 'B-03'
+	 Customer : Customer{ID = 'C-03', Name = 'Emma Davis', Is Member = false}
+	 Service : Service{ID = 'S-04', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+	 Final Price : 72.0
+	 Priority : false}
+Booking{
+	 ID = 'B-04'
+	 Customer : Customer{ID = 'C-04', Name = 'Liam Wilson', Is Member = true}
+	 Service : Service{ID = 'S-04', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+	 Final Price : 61.2
+	 Priority : true}
 ```
 
 ---

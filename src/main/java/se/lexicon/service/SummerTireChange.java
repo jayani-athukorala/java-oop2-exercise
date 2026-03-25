@@ -1,4 +1,4 @@
-package se.lexicon.task1;
+package se.lexicon.service;
 
 public class SummerTireChange extends Service{
 
@@ -19,7 +19,7 @@ public class SummerTireChange extends Service{
     @Override
     public String toString() {
         return super.toString() +
-                ", Service Duration=" + getDuration() + "min" +
-                ", Total Price=" + calculatePrice();
+                ", Service Duration = " + getDuration() + "min" +
+                ", Total Price = " + calculatePrice();
     }
 }
