@@ -9,7 +9,7 @@ public class Customer {
     private final boolean isMember;
 
     public Customer(String name, boolean isMember) {
-        this.id = "C-" + String.format("%02d", counter++);
+        this.id = "C-" + String.format("%02d", ++counter);
         this.name = name;
         this.isMember = isMember;
     }

@@ -10,7 +10,7 @@ public abstract class Service {
 
     //Constructor
     protected Service(String name, double basePrice) {
-        this.id = "S-" + String.format("%02d", counter++);
+        this.id = "S-" + String.format("%02d", ++counter);
         this.name = name;
         this.basePrice = basePrice;
     }

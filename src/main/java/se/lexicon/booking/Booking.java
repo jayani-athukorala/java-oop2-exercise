@@ -16,7 +16,7 @@ public class Booking {
     private final boolean priority;
 
     public Booking(Customer customer, Service service, double finalPrice, boolean priority) {
-        this.id = "B-" + String.format("%02d", counter++);
+        this.id = "B-" + String.format("%02d", ++counter);
         this.date = LocalDate.now();
         this.customer = customer;
         this.service = service;
