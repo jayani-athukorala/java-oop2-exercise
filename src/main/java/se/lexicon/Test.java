@@ -42,8 +42,6 @@ public class Test {
         // List to store all bookings (simulates a system/database)
         List<Booking> bookings = new ArrayList<>();
 
-        // Helper method-like logic (repeated pattern)
-
         // Bookings
         bookings.add(processBooking(c1, summer));
         bookings.add(processBooking(c2, winter));
@@ -73,6 +71,4 @@ public class Test {
         // Process and return booking
         return processor.processBooking(request);
     }
-
-
 }
