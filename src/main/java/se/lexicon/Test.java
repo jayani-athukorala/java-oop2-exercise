@@ -1,9 +1,8 @@
 package se.lexicon;
 
 import se.lexicon.booking.*;
-import se.lexicon.customer.Customer;
+import se.lexicon.customer.*;
 import se.lexicon.service.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +28,11 @@ public class Test {
 
         IO.println("------------Exercise 3 ---------------");
         // Create customers (mix of members and non-members)
-        Customer c1 = new Customer("John Smith", true);      // member
-        Customer c2 = new Customer("Alice Johnson", false);  // non-member
-        Customer c3 = new Customer("Bob Brown", true);       // member
-        Customer c4 = new Customer("Emma Davis", false);     // non-member
-        Customer c5 = new Customer("Liam Wilson", true);     // member
+        Customer c1 = new Customer("John Smith", CustomerType.MEMBER);  // member
+        Customer c2 = new Customer("Alice Johnson", CustomerType.MEMBER);   // member
+        Customer c3 = new Customer("Bob Brown", CustomerType.NON_MEMBER);   // non-member
+        Customer c4 = new Customer("Emma Davis", CustomerType.MEMBER);  // member
+        Customer c5 = new Customer("Liam Wilson", CustomerType.NON_MEMBER); // non-member
 
         // Create services
         Service summer = new SummerTireChange();
@@ -48,7 +47,8 @@ public class Test {
         bookings.add(processBooking(c3, winter));
         bookings.add(processBooking(c4, summer));
         bookings.add(processBooking(c5, summer));
-        IO.println("=== All Bookings ===");
+
+        IO.println("====== All Bookings ======");
         for (Booking booking : bookings) {
             IO.println(booking);
         }
@@ -66,7 +66,7 @@ public class Test {
         BookingRequest request = new BookingRequest(customer, service);
 
         // Factory decides which processor to use
-        BookingProcessor processor = BookingProcessorFactory.getProcessor(customer);
+        BookingProcessor processor = BookingProcessorFactory.getProcessor(customer.getType());
 
         // Process and return booking
         return processor.processBooking(request);

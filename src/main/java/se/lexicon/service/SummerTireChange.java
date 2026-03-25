@@ -3,7 +3,7 @@ package se.lexicon.service;
 public class SummerTireChange extends Service{
 
     public SummerTireChange() {
-        super("Summer Tire Change", 80.0, "S-001");
+        super("Summer Tire Change", 80.0, "S-01");
     }
 
     @Override
@@ -19,7 +19,7 @@ public class SummerTireChange extends Service{
     @Override
     public String toString() {
         return super.toString() +
-                ", Service Duration = " + getDuration() + "min" +
-                ", Total Price = " + calculatePrice();
+                ", Service Duration = " + getDuration() + " min" +
+                ", Total Price = $" + calculatePrice();
     }
 }

@@ -31,7 +31,7 @@ public class Booking {
                 "\t Date = '" + date + "'\n" +
                 "\t Customer : " + customer + "\n"+
                 "\t Service : " + service + "\n"+
-                "\t Final Price : " + finalPrice + "\n"+
+                "\t Final Price : $" + finalPrice + "\n"+
                 "\t Priority : " + priority +
                 '}';
     }

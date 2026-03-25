@@ -117,48 +117,48 @@ class BookingProcessorFactory {
 
 ```
 ------------Exercise 1---------------
-Service{ID = 'S-001', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
-Service{ID = 'S-002', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
+Service{ID = 'S-01', Name = 'Summer Tire Change', BasePrice = $80.0}, Service Duration = 45 min, Total Price = $72.0
+Service{ID = 'S-02', Name = 'Winter Tire Change', BasePrice = $100.0}, Service Duration = 60 min, Total Price = $120.0
 ------------Exercise 2 ---------------
-Service{ID = 'S-002', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
-Service{ID = 'S-001', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
+Service{ID = 'S-02', Name = 'Winter Tire Change', BasePrice = $100.0}, Service Duration = 60 min, Total Price = $120.0
+Service{ID = 'S-01', Name = 'Summer Tire Change', BasePrice = $80.0}, Service Duration = 45 min, Total Price = $72.0
 ------------Exercise 3 ---------------
-=== All Bookings ===
+====== All Bookings ======
 Booking{
 	 ID = 'B-01'
 	 Date = '2026-03-25'
-	 Customer : Customer{ID = 'C-01', Name = 'John Smith', Is Member = true}
-	 Service : Service{ID = 'S-001', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
-	 Final Price : 61.2
+	 Customer : Customer{ID = 'C-01', Name = 'John Smith', Is Member = MEMBER}
+	 Service : Service{ID = 'S-01', Name = 'Summer Tire Change', BasePrice = $80.0}, Service Duration = 45 min, Total Price = $72.0
+	 Final Price : $61.2
 	 Priority : true}
 Booking{
 	 ID = 'B-02'
 	 Date = '2026-03-25'
-	 Customer : Customer{ID = 'C-02', Name = 'Alice Johnson', Is Member = false}
-	 Service : Service{ID = 'S-002', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
-	 Final Price : 120.0
-	 Priority : false}
+	 Customer : Customer{ID = 'C-02', Name = 'Alice Johnson', Is Member = MEMBER}
+	 Service : Service{ID = 'S-02', Name = 'Winter Tire Change', BasePrice = $100.0}, Service Duration = 60 min, Total Price = $120.0
+	 Final Price : $102.0
+	 Priority : true}
 Booking{
 	 ID = 'B-03'
 	 Date = '2026-03-25'
-	 Customer : Customer{ID = 'C-03', Name = 'Bob Brown', Is Member = true}
-	 Service : Service{ID = 'S-002', Name = 'Winter Tire Change', BasePrice = 100.0}, Service Duration = 60min, Total Price = 120.0
-	 Final Price : 102.0
-	 Priority : true}
+	 Customer : Customer{ID = 'C-03', Name = 'Bob Brown', Is Member = NON_MEMBER}
+	 Service : Service{ID = 'S-02', Name = 'Winter Tire Change', BasePrice = $100.0}, Service Duration = 60 min, Total Price = $120.0
+	 Final Price : $120.0
+	 Priority : false}
 Booking{
 	 ID = 'B-04'
 	 Date = '2026-03-25'
-	 Customer : Customer{ID = 'C-04', Name = 'Emma Davis', Is Member = false}
-	 Service : Service{ID = 'S-001', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
-	 Final Price : 72.0
-	 Priority : false}
+	 Customer : Customer{ID = 'C-04', Name = 'Emma Davis', Is Member = MEMBER}
+	 Service : Service{ID = 'S-01', Name = 'Summer Tire Change', BasePrice = $80.0}, Service Duration = 45 min, Total Price = $72.0
+	 Final Price : $61.2
+	 Priority : true}
 Booking{
 	 ID = 'B-05'
 	 Date = '2026-03-25'
-	 Customer : Customer{ID = 'C-05', Name = 'Liam Wilson', Is Member = true}
-	 Service : Service{ID = 'S-001', Name = 'Summer Tire Change', BasePrice = 80.0}, Service Duration = 45min, Total Price = 72.0
-	 Final Price : 61.2
-	 Priority : true}
+	 Customer : Customer{ID = 'C-05', Name = 'Liam Wilson', Is Member = NON_MEMBER}
+	 Service : Service{ID = 'S-01', Name = 'Summer Tire Change', BasePrice = $80.0}, Service Duration = 45 min, Total Price = $72.0
+	 Final Price : $72.0
+	 Priority : false}
 ```
 
 ---

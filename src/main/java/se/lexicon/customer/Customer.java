@@ -1,17 +1,15 @@
 package se.lexicon.customer;
 
-import java.util.UUID;
-
 public class Customer {
     private static int counter;
     private final String id;
     private final String name;
-    private final boolean isMember;
+    private final CustomerType type;
 
-    public Customer(String name, boolean isMember) {
+    public Customer(String name, CustomerType type) {
         this.id = "C-" + String.format("%02d", ++counter);
         this.name = name;
-        this.isMember = isMember;
+        this.type = type;
     }
 
     public String getId(){
@@ -21,8 +19,8 @@ public class Customer {
         return name;
     }
 
-    public boolean isMember() {
-        return isMember;
+    public CustomerType getType() {
+        return type;
     }
 
     @Override
@@ -30,7 +28,7 @@ public class Customer {
         return "Customer{" +
                 "ID = '" + id + '\'' +
                 ", Name = '" + name + '\'' +
-                ", Is Member = " + isMember +
+                ", Is Member = " + type +
                 '}';
     }
 }

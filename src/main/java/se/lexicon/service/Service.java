@@ -37,7 +37,7 @@ public abstract class Service {
         return "Service{" +
                 "ID = '" + id + '\'' +
                 ", Name = '" + name + '\'' +
-                ", BasePrice = " + basePrice +
+                ", BasePrice = $" + basePrice +
                 '}';
     }
 }
