@@ -27,9 +27,8 @@ classDiagram
 class Customer {
 -String id
 -String name
--boolean isMember
+-CustomerType type
 +Customer(String name, boolean isMember)
-+boolean isMember()
 }
 
 %% --------------------------
@@ -97,6 +96,14 @@ class NonMemberBookingProcessor {
 %% Factory
 class BookingProcessorFactory {
 +getProcessor(Customer customer) : BookingProcessor
+}
+
+%% --------------------------
+%% CustomerType
+class CustomerType {
+    <<enumeration>>
+    MEMBER
+    NON_MEMBER 
 }
 
 %% --------------------------
