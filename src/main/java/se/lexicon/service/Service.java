@@ -3,14 +3,13 @@ package se.lexicon.service;
 import java.util.UUID;
 
 public abstract class Service {
-    private static int counter;
     private final String id;
     private final String name;
     private final double basePrice;
 
     //Constructor
-    protected Service(String name, double basePrice) {
-        this.id = "S-" + String.format("%02d", ++counter);
+    protected Service(String name, double basePrice, String id) {
+        this.id = id;
         this.name = name;
         this.basePrice = basePrice;
     }

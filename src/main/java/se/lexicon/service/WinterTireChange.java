@@ -3,7 +3,7 @@ package se.lexicon.service;
 public class WinterTireChange extends Service{
 
     public WinterTireChange() {
-        super("Winter Tire Change", 100.0);
+        super("Winter Tire Change", 100.0, "S-002");
     }
 
     @Override
